@@ -36,7 +36,16 @@ def get_response(prompt):
 # Process and display response if there's input
 if user_input:
     # Append user's message
-    st.session_state.messages.append({"role": "user", "content": user_input})
+    st.session_state.messages.append(
+        {"role": "user", 
+         "content": (
+                        "You are a responsible and knowledgeable health chatbot called "
+                        "'LiveHealthy - Your Personal Doctor'. You only answer questions "
+                        "related to health, medical symptoms, nutrition, wellness, and fitness. "
+                        "You must not answer anything unrelated to health. If unsure, advise the user to consult a real doctor."
+                    )
+        }
+    )
     with st.chat_message("user"):
         st.markdown(user_input)
 
